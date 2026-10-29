@@ -1,0 +1,7 @@
+node_modules/
+*.log
+.env
+.DS_Store
+coverage/
+# Keep dist/index.js and dist/licenses.txt in release commits:
+# GitHub downloads the action bundle without running npm install.

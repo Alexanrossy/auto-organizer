@@ -1,0 +1,9 @@
+{
+  "folders": ["src", "components", "hooks", "utils", "services", "types", "styles", "assets", "tests"],
+  "ignore": ["node_modules/**", "dist/**", "build/**", "vendor/**", ".git/**"],
+  "aliases": { "@/*": ["src/*"] },
+  "structure": [
+    { "pattern": "src/use*.ts", "destination": "src/hooks" },
+    { "pattern": "src/*.test.ts", "destination": "src/tests" }
+  ]
+}

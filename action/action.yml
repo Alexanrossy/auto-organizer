@@ -1,0 +1,44 @@
+name: Auto-Organizer
+description: Detect file organization issues, update imports and commit fixes to same-repository pull requests.
+author: Auto-Organizer contributors
+branding:
+  icon: layers
+  color: orange
+inputs:
+  github-token:
+    description: GitHub token with contents and pull-requests write permissions.
+    required: true
+    default: ${{ github.token }}
+  mode:
+    description: fix applies and commits changes; report only detects and comments.
+    default: report
+  fix-case-conflicts:
+    description: Normalize conflicting directory capitalization.
+    default: 'true'
+  fix-typos:
+    description: Correct known spelling mistakes in paths.
+    default: 'true'
+  fix-structure:
+    description: Move files according to configured structure rules.
+    default: 'true'
+  update-imports:
+    description: Update literal ES imports, exports, require and dynamic imports.
+    default: 'true'
+  commit-message:
+    description: Message for the automatic commit.
+    default: 'chore: organize files and update imports'
+  conventions-file:
+    description: Repository-relative JSON conventions file.
+    default: .organizer.json
+outputs:
+  files-fixed:
+    description: Number of distinct renamed files and import consumers modified.
+  files-renamed:
+    description: Number of files moved successfully.
+  folders-unified:
+    description: Number of source directories normalized by case correction.
+  comment-url:
+    description: URL of the pull request report, or empty when commenting is unavailable.
+runs:
+  using: node24
+  main: dist/index.js

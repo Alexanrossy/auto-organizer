@@ -1,0 +1,16 @@
+{
+  "name": "auto-organizer-action",
+  "version": "2.0.0",
+  "description": "Organize files and update imports in pull requests.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "engines": { "node": ">=20" },
+  "scripts": { "build": "ncc build src/index.js -o dist --license licenses.txt", "test": "node test/organizer.test.js" },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1",
+    "@actions/exec": "^1.1.1",
+    "typescript": "5.8.3"
+  },
+  "devDependencies": { "@vercel/ncc": "^0.38.3" }
+}

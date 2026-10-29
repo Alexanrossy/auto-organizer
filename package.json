@@ -1,0 +1,34 @@
+{
+  "name": "auto-organizer-docs",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "workspaces": ["action"],
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 8090",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4190",
+    "test": "npm run test --workspace auto-organizer-action",
+    "test:e2e": "playwright test",
+    "build:action": "npm run build --workspace auto-organizer-action"
+  },
+  "dependencies": {
+    "lucide-react": "0.462.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-syntax-highlighter": "15.6.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "22.16.5",
+    "@types/react": "18.3.23",
+    "@types/react-dom": "18.3.7",
+    "@types/react-syntax-highlighter": "15.5.13",
+    "@vitejs/plugin-react-swc": "3.11.0",
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.6",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.8.3",
+    "vite": "5.4.19"
+  }
+}

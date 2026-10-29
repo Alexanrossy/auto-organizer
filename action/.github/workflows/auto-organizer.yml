@@ -1,0 +1,35 @@
+name: Auto-Organizer
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: organizer-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+jobs:
+  organize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: true
+      # The Action lives in action/ alongside the documentation app.
+      # Replace YOUR_OWNER and create the v2 tag after validating a test PR.
+      - name: Organize pull request
+        id: organizer
+        uses: YOUR_OWNER/auto-organizer/action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          mode: report
+          fix-case-conflicts: 'true'
+          fix-typos: 'true'
+          fix-structure: 'true'
+          update-imports: 'true'
+          conventions-file: .organizer.json
+      - name: Display results
+        run: |
+          echo 'Moved files: ${{ steps.organizer.outputs.files-renamed }}'

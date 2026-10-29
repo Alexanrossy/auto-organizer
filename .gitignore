@@ -1,0 +1,11 @@
+node_modules/
+dist/
+!action/dist/
+action/dist/*
+!action/dist/index.js
+!action/dist/licenses.txt
+test-results/
+playwright-report/
+*.log
+.env*
+.DS_Store
