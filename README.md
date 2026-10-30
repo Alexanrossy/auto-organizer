@@ -1,7 +1,6 @@
 # Auto-Organizer v2.0
 
-Projeto novo e independente: documentação de uma GitHub Action com visual escuro,
-tipografia de sistema, acentos em cobre/coral, navegação translúcida e layout responsivo.
+Projeto independente: documentação GitHub Action 
 
 ![Visão geral do Auto-Organizer](docs/preview.png)
 
